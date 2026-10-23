@@ -1,0 +1,458 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Happy Birthday, Dilip ❤️</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      color: white;
+      background: linear-gradient(135deg, #5b123e, #d6336c, #ff9a9e);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .container {
+      min-height: 100vh;
+      padding: 35px 15px 45px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-family: Georgia, serif;
+      font-size: clamp(2.2rem, 8vw, 4rem);
+      margin: 10px 0;
+      animation: glow 2s infinite alternate;
+    }
+
+    .subtitle {
+      font-size: 1.4rem;
+      margin: 10px 0;
+    }
+
+    .description {
+      max-width: 500px;
+      line-height: 1.8;
+    }
+
+    /* PHOTO FRAME */
+    .photo-frame {
+      width: 220px;
+      height: 260px;
+      margin: 20px auto;
+      padding: 8px;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 0 25px #ffb6d5;
+      transform: rotate(-2deg);
+      z-index: 1;
+    }
+
+    .photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 15px;
+      display: block;
+    }
+
+    /* PHOTO SURPRISE - HIDDEN INITIALLY */
+    .photo-surprise {
+      display: none;
+      height: auto;
+      width: min(300px, 90%);
+      padding: 15px;
+      margin: 25px auto;
+      color: #b51e59;
+      background: white;
+      transform: none;
+      animation: appear 1s ease;
+      position: relative;
+      z-index: 4;
+    }
+
+    .photo-surprise img {
+      width: 100%;
+      height: auto;
+      max-height: 350px;
+      object-fit: contain;
+      border-radius: 15px;
+    }
+
+    .photo-surprise h2 {
+      font-family: Georgia, serif;
+      font-size: 1.3rem;
+    }
+
+    .photo-surprise p {
+      line-height: 1.6;
+    }
+
+    /* ANIMATED BIRTHDAY CAKE */
+    .cake {
+      font-size: 100px;
+      margin: 15px 0;
+      animation: bounce 1.8s infinite;
+      filter: drop-shadow(0 8px 15px #6a123c);
+    }
+
+    /* BUTTONS */
+    .button {
+      padding: 14px 24px;
+      margin: 12px;
+      border: none;
+      border-radius: 30px;
+      background: white;
+      color: #b51e59;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 5px 15px #50102e55;
+      transition: transform 0.2s;
+    }
+
+    .button:hover {
+      transform: scale(1.05);
+    }
+
+    /* SURPRISE LOVE MESSAGE */
+    .message {
+      display: none;
+      max-width: 450px;
+      width: 100%;
+      padding: 25px;
+      margin-top: 20px;
+      border-radius: 20px;
+      background: #ffffffee;
+      color: #7d1646;
+      line-height: 1.8;
+      box-shadow: 0 10px 35px #350a2855;
+      animation: appear 0.7s ease;
+      z-index: 3;
+    }
+
+    .message h2 {
+      color: #d6336c;
+    }
+
+    /* FLOATING HEARTS */
+    .heart {
+      position: fixed;
+      bottom: -40px;
+      font-size: 24px;
+      pointer-events: none;
+      animation: floatUp 5s linear forwards;
+      z-index: 2;
+    }
+
+    /* CONFETTI CANVAS */
+    #confetti {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 5;
+    }
+
+    footer {
+      margin-top: 25px;
+      font-size: 0.85rem;
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0) rotate(-3deg);
+      }
+      50% {
+        transform: translateY(-15px) rotate(3deg);
+      }
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 5px white;
+      }
+      to {
+        text-shadow: 0 0 25px #ffb8d0;
+      }
+    }
+
+    @keyframes appear {
+      from {
+        opacity: 0;
+        transform: translateY(15px) scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @keyframes floatUp {
+      to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .photo-frame {
+        width: 190px;
+        height: 230px;
+      }
+
+      .photo-surprise {
+        width: 90%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <canvas id="confetti"></canvas>
+
+  <main class="container">
+
+    <h1>Happy Birthday Dilip ❤️</h1>
+
+    <p class="subtitle">To My Lovely Husband 💖</p>
+
+    <p class="description">
+      Today is all about you! 🥰<br>
+      You make my world brighter, my heart happier,
+      and every day more beautiful.
+    </p>
+
+
+    <p>Make a wish and get ready for a surprise! ✨</p>
+
+    <!-- ANIMATED BIRTHDAY CAKE -->
+    <div class="cake" aria-label="Birthday cake">🎂</div>
+
+    <!-- SURPRISE MESSAGE BUTTON -->
+    <button class="button" id="surpriseButton">
+      Open Your Surprise 💌
+    </button>
+
+    <!-- PERSONAL LOVE MESSAGE -->
+    <section class="message" id="loveMessage" aria-live="polite">
+      <h2>For You, My Dilip 💕</h2>
+
+      <p>
+        Happy Birthday to my favorite person in the world! ❤️
+        Every moment with you is a beautiful memory.
+        Thank you for bringing so much happiness into my life.
+        My wish is to grow old with you, holding your hand, 
+        loving you more every day, and choosing you in every lifetime. ❤️♾️💍.
+      </p>
+
+      <p>
+        <strong>I love you, today and always. 💋</strong>
+      </p>
+
+      <button class="button" id="closeButton">
+        Close Message
+      </button>
+    </section>
+
+    <!-- CELEBRATE BUTTON -->
+    <button class="button" id="celebrateButton">
+      Celebrate! 🎉
+    </button>
+
+    <!-- PHOTO APPEARS AFTER CLICKING CELEBRATE -->
+    <div class="photo-frame photo-surprise" id="photoSurprise">
+      <h2>Our Beautiful Memories ❤️</h2>
+
+      <img src="ad.jpg.jpeg" alt="Our special memory">
+
+      <p>
+        You are my favorite person, today and always! 💖
+      </p>
+    </div>
+
+    <footer>Made with all my love, just for you by your wifey!! ❤️</footer>
+
+  </main>
+
+  <script>
+    const surpriseButton =
+      document.getElementById("surpriseButton");
+
+    const loveMessage =
+      document.getElementById("loveMessage");
+
+    const closeButton =
+      document.getElementById("closeButton");
+
+    const celebrateButton =
+      document.getElementById("celebrateButton");
+
+    const photoSurprise =
+      document.getElementById("photoSurprise");
+
+    // OPEN THE SURPRISE LOVE MESSAGE
+    surpriseButton.addEventListener("click", () => {
+      loveMessage.style.display = "block";
+      surpriseButton.textContent = "Your Surprise Is Here ❤️";
+
+      launchConfetti();
+      createHearts(18);
+    });
+
+    // CLOSE THE LOVE MESSAGE
+    closeButton.addEventListener("click", () => {
+      loveMessage.style.display = "none";
+      surpriseButton.textContent = "Open Your Surprise 💌";
+    });
+
+    // SHOW PHOTO WHEN CELEBRATE IS CLICKED
+    celebrateButton.addEventListener("click", () => {
+      photoSurprise.style.display = "block";
+
+      launchConfetti();
+      createHearts(30);
+
+      celebrateButton.textContent = "Surprise Revealed! ❤️";
+
+      photoSurprise.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+      });
+    });
+
+    // FLOATING HEARTS ANIMATION
+    function createHearts(amount) {
+      const symbols = ["❤️", "💕", "💖", "💗", "💘"];
+
+      for (let i = 0; i < amount; i++) {
+        const heart = document.createElement("span");
+
+        heart.className = "heart";
+        heart.textContent =
+          symbols[Math.floor(Math.random() * symbols.length)];
+
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDelay = Math.random() * 1.5 + "s";
+
+        document.body.appendChild(heart);
+
+        heart.addEventListener("animationend", () => {
+          heart.remove();
+        });
+      }
+    }
+
+    // CONFETTI ANIMATION
+    const canvas = document.getElementById("confetti");
+    const ctx = canvas.getContext("2d");
+
+    let pieces = [];
+    let animationFrame = null;
+
+    function resizeCanvas() {
+      const ratio = window.devicePixelRatio || 1;
+
+      canvas.width = window.innerWidth * ratio;
+      canvas.height = window.innerHeight * ratio;
+      canvas.style.width = window.innerWidth + "px";
+      canvas.style.height = window.innerHeight + "px";
+
+      ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+    }
+
+    window.addEventListener("resize", resizeCanvas);
+    resizeCanvas();
+
+    function launchConfetti() {
+      const colors = [
+        "#ff4d88",
+        "#ffd166",
+        "#ffffff",
+        "#c77dff",
+        "#ff85a1",
+        "#80ffdb"
+      ];
+
+      for (let i = 0; i < 160; i++) {
+        pieces.push({
+          x: Math.random() * window.innerWidth,
+          y: -20 - Math.random() * window.innerHeight * 0.5,
+          size: 4 + Math.random() * 7,
+          speed: 2 + Math.random() * 4,
+          drift: (Math.random() - 0.5) * 3,
+          color: colors[Math.floor(Math.random() * colors.length)],
+          rotation: Math.random() * 360
+        });
+      }
+
+      if (animationFrame === null) {
+        animateConfetti();
+      }
+    }
+
+    function animateConfetti() {
+      ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+
+      pieces.forEach(piece => {
+        piece.x += piece.drift;
+        piece.y += piece.speed;
+        piece.rotation += 4;
+
+        ctx.save();
+        ctx.translate(piece.x, piece.y);
+        ctx.rotate(piece.rotation * Math.PI / 180);
+        ctx.fillStyle = piece.color;
+
+        ctx.fillRect(
+          -piece.size / 2,
+          -piece.size / 2,
+          piece.size,
+          piece.size * 0.65
+        );
+
+        ctx.restore();
+      });
+
+      pieces = pieces.filter(
+        piece => piece.y < window.innerHeight + 20
+      );
+
+      if (pieces.length > 0) {
+        animationFrame = requestAnimationFrame(animateConfetti);
+      } else {
+        ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+        animationFrame = null;
+      }
+    }
+
+    // FLOATING HEARTS WHEN WEBSITE OPENS
+    window.addEventListener("load", () => {
+      createHearts(8);
+    });
+  </script>
+</body>
+</html>
